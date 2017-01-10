@@ -65,13 +65,13 @@
 		6AF339991E253AE600FAC5AD /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				6AF3399A1E253AE600FAC5AD /* Follow */,
+				6AF339B81E253AE600FAC5AD /* Tools */,
+				6AF339A91E253AE600FAC5AD /* Main */,
 				6AF3399F1E253AE600FAC5AD /* Home */,
 				6AF339A41E253AE600FAC5AD /* Live */,
-				6AF339A91E253AE600FAC5AD /* Main */,
-				6AF339AE1E253AE600FAC5AD /* Profile */,
 				6AF339B31E253AE600FAC5AD /* Room */,
-				6AF339B81E253AE600FAC5AD /* Tools */,
+				6AF3399A1E253AE600FAC5AD /* Follow */,
+				6AF339AE1E253AE600FAC5AD /* Profile */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -558,6 +558,7 @@
 				6AF339981E2539EE00FAC5AD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

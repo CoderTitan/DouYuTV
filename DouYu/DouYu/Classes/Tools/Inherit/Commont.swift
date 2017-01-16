@@ -8,16 +8,25 @@
 
 import UIKit
 
+// MARK: 导航栏和tabbar
 /** 工具条高度*/
 let kStatusBarH : CGFloat = 20
 /** 导航栏高度*/
 let kNavigationH : CGFloat = 44
 /** tabBar高度*/
 let kTabBarH : CGFloat = 49
+
+
+// MARK: 屏幕的高宽
 /** 屏幕的宽度*/
 let kScreenWidth : CGFloat = UIScreen.mainScreen().bounds.width
 /** 屏幕的高度*/
 let kScreenHeight : CGFloat = UIScreen.mainScreen().bounds.height
+
+
+// MARK: 首页控件
+/** title标题栏高度*/
+let kTitleViewH : CGFloat = 40
 
 
 

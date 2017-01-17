@@ -18,8 +18,12 @@ class GameCollectionCell: UICollectionViewCell {
     var groupModel : AnchorGroup? {
         didSet{
             titleLabel.text = groupModel?.tag_name
-            let imageUrl = NSURL(string: groupModel?.icon_url ?? "")!
-            iconImageView.kf_setImageWithURL(imageUrl, placeholderImage: UIImage(named: "home_more_btn"))
-        }
+            
+            if let imageUrl = URL(string: groupModel?.icon_url ?? "") {
+                iconImageView.kf.setImage(with: imageUrl)
+            }else{
+                iconImageView.image = UIImage(named: "home_more_btn")
+            }
+         }
     }
 }

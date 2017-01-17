@@ -32,9 +32,9 @@ class RecommendGameView: UIView {
     // MARK: 系统回调
     override func awakeFromNib() {
         super.awakeFromNib()
-        autoresizingMask = .None
+        autoresizingMask = UIViewAutoresizing()
         collectionGameView.dataSource = self
-        collectionGameView.registerNib(UINib(nibName: "GameCollectionCell", bundle: nil), forCellWithReuseIdentifier: kGameCellID)
+        collectionGameView.register(UINib(nibName: "GameCollectionCell", bundle: nil), forCellWithReuseIdentifier: kGameCellID)
         collectionGameView.contentInset = UIEdgeInsetsMake(0, kEdgeInsetMargin, 0, kEdgeInsetMargin)
     }
     
@@ -43,18 +43,18 @@ class RecommendGameView: UIView {
 // MARK: 类方法加载xib
 extension RecommendGameView{
     class func recommendGameView() -> RecommendGameView{
-        return NSBundle.mainBundle().loadNibNamed("RecommendGameView", owner: nil, options: nil)?.first as! RecommendGameView
+        return Bundle.main.loadNibNamed("RecommendGameView", owner: nil, options: nil)?.first as! RecommendGameView
     }
 }
 
 // MARK: 
 extension RecommendGameView: UICollectionViewDataSource{
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return group?.count ?? 0
     }
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(kGameCellID, forIndexPath: indexPath) as! GameCollectionCell
-        cell.groupModel = group![indexPath.item]
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kGameCellID, for: indexPath) as! GameCollectionCell
+        cell.groupModel = group![(indexPath as NSIndexPath).item]
         return cell
     }
 }

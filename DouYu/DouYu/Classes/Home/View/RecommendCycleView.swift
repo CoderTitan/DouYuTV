@@ -12,7 +12,7 @@ private let kCycleCellID = "kCycleCellID"
 
 class RecommendCycleView: UIView {
     // MARK: 控件属性
-    var timer: NSTimer?
+    var timer: Timer?
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var pageControl: UIPageControl!
@@ -23,8 +23,8 @@ class RecommendCycleView: UIView {
             self.collectionView.reloadData()
             self.pageControl.numberOfPages = cycleModelArr?.count ?? 0
             //默认滚到中间的位置
-            let indexPath = NSIndexPath(forItem: (cycleModelArr?.count ?? 0) * 10, inSection: 0)
-            collectionView.scrollToItemAtIndexPath(indexPath, atScrollPosition: .Left, animated: false)
+            let indexPath = IndexPath(item: (cycleModelArr?.count ?? 0) * 10, section: 0)
+            collectionView.scrollToItem(at: indexPath, at: .left, animated: false)
             removeCycleTimer()
             addCycleTimer()
         }
@@ -33,11 +33,11 @@ class RecommendCycleView: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
         // 设置该控件不随着父控件的拉伸而拉伸
-        autoresizingMask = .None
+        autoresizingMask = UIViewAutoresizing()
         // 注册Cell
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.registerNib(UINib(nibName: "CycleCollectionCell", bundle: nil), forCellWithReuseIdentifier: kCycleCellID)
+        collectionView.register(UINib(nibName: "CycleCollectionCell", bundle: nil), forCellWithReuseIdentifier: kCycleCellID)
     }
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -50,46 +50,46 @@ class RecommendCycleView: UIView {
 // MARK:- 提供一个快速创建View的类方法
 extension RecommendCycleView{
     class func recommendCycleView() -> RecommendCycleView{
-        return NSBundle.mainBundle().loadNibNamed("RecommendCycleView", owner: nil, options: nil)?.first as! RecommendCycleView
+        return Bundle.main.loadNibNamed("RecommendCycleView", owner: nil, options: nil)?.first as! RecommendCycleView
     }
 }
 
 // MARK: 
 extension RecommendCycleView: UICollectionViewDataSource, UICollectionViewDelegate{
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return (cycleModelArr?.count ?? 0) * 10000
     }
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(kCycleCellID, forIndexPath: indexPath) as! CycleCollectionCell
-        cell.cycleModel = cycleModelArr![indexPath.item % cycleModelArr!.count]
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kCycleCellID, for: indexPath) as! CycleCollectionCell
+        cell.cycleModel = cycleModelArr![(indexPath as NSIndexPath).item % cycleModelArr!.count]
         return cell
     }
-    func scrollViewDidScroll(scrollView: UIScrollView) {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let contentX = scrollView.contentOffset.x + scrollView.bounds.width * 0.5
         pageControl.currentPage = Int(contentX / scrollView.bounds.width) % (cycleModelArr?.count ?? 1)
     }
-    func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         removeCycleTimer()
     }
-    func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         addCycleTimer()
     }
 }
 
 // MARK: 定时器的操作方法
 extension RecommendCycleView{
-    private func addCycleTimer(){
+    fileprivate func addCycleTimer(){
         //repeats是否需要重复
-        timer = NSTimer(timeInterval: 3.0, target: self, selector: #selector(self.scrollToNext), userInfo: nil, repeats: true)
+        timer = Timer(timeInterval: 3.0, target: self, selector: #selector(self.scrollToNext), userInfo: nil, repeats: true)
         //加到运行循环里面
-        NSRunLoop.mainRunLoop().addTimer(timer!, forMode:NSRunLoopCommonModes)
+        RunLoop.main.add(timer!, forMode:RunLoopMode.commonModes)
         
     }
-    private func removeCycleTimer(){
+    fileprivate func removeCycleTimer(){
         timer?.invalidate()//从运行循环中移除
         timer = nil
     }
-    @objc private func scrollToNext(){
+    @objc fileprivate func scrollToNext(){
         // 1.获取滚动的偏移量
         let currentC = collectionView.contentOffset.x + collectionView.bounds.width
         collectionView.setContentOffset(CGPoint(x: currentC, y: 0), animated: true)

@@ -26,19 +26,19 @@ extension UIBarButtonItem{
 */
     
     // 便利构造函数: 1> convenience开头 2> 在构造函数中必须明确调用一个设计的构造函数(self)
-    convenience init(norImage : String, selectImage : String = "", itemSize : CGSize = CGSizeZero) {
+    convenience init(norImage : String, selectImage : String = "", itemSize : CGSize = CGSize.zero) {
         
         let button = UIButton()
-        button.setImage(UIImage(named: norImage), forState: UIControlState.Normal)
+        button.setImage(UIImage(named: norImage), for: UIControlState())
         
         if selectImage != ""{
-            button.setImage(UIImage(named: selectImage), forState: .Highlighted)
+            button.setImage(UIImage(named: selectImage), for: .highlighted)
         }
         
-        if itemSize == CGSizeZero{
+        if itemSize == CGSize.zero{
             button.sizeToFit()
         }else{
-            button.frame = CGRect(origin: CGPointZero, size: itemSize)
+            button.frame = CGRect(origin: CGPoint.zero, size: itemSize)
         }
         
         self.init(customView : button)

@@ -19,9 +19,9 @@ let kTabBarH : CGFloat = 49
 
 // MARK: 屏幕的高宽
 /** 屏幕的宽度*/
-let kScreenWidth : CGFloat = UIScreen.mainScreen().bounds.width
+let kScreenWidth : CGFloat = UIScreen.main.bounds.width
 /** 屏幕的高度*/
-let kScreenHeight : CGFloat = UIScreen.mainScreen().bounds.height
+let kScreenHeight : CGFloat = UIScreen.main.bounds.height
 
 
 // MARK: 首页控件

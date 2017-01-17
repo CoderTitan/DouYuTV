@@ -8,9 +8,9 @@
 
 import UIKit
 
-extension NSDate{
-    class func getCurrentTime() -> String {
-        let nowDate = NSDate()
+extension Date{
+    static func getCurrentTime() -> String {
+        let nowDate = Date()
         
         let interval = Int(nowDate.timeIntervalSince1970)
         

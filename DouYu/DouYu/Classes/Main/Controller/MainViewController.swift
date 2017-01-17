@@ -21,7 +21,7 @@ class MainViewController: UITabBarController {
     
     }
 
-    private func addChildViewControllers(vcName: String) {
+    fileprivate func addChildViewControllers(_ vcName: String) {
         //通过sto获取控制器
         let viewController = UIStoryboard(name: vcName, bundle: nil).instantiateInitialViewController()!
         

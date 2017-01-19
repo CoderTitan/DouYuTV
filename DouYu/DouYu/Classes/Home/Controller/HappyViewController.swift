@@ -8,28 +8,31 @@
 
 import UIKit
 
-class HappyViewController: UIViewController {
+private let kTopMargin : CGFloat = 8
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+class HappyViewController: BaseAnchorController {
 
-        // Do any additional setup after loading the view.
+    // MARK: 懒加载ViewModel对象
+    fileprivate lazy var happyVM : HappyViewModel = HappyViewModel()
+
+}
+
+extension HappyViewController{
+    override func onfinishInfalse() {
+        super.onfinishInfalse()
+        
+        let flower = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        flower.headerReferenceSize = CGSize.zero
+        collectionView.contentInset = UIEdgeInsetsMake(kTopMargin, 0, kTopMargin, 0)
     }
+}
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+extension HappyViewController{
+    override func loadRequestData() {
+        baseVM = happyVM
+        happyVM.loadFunnyData { 
+            self.collectionView.reloadData()
+            
+        }
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

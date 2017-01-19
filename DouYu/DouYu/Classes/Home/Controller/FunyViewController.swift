@@ -8,28 +8,45 @@
 
 import UIKit
 
-class FunyViewController: UIViewController {
+private let kMenuViewH : CGFloat = 200
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+class FunyViewController: BaseAnchorController {
+// MARK: 定义属性
     
+    // MARK: 懒加载
+    fileprivate lazy var amuseVM : AmuseViewModel = AmuseViewModel()
+    fileprivate lazy var amuseMenuView : AmuseMenuView = {
+       let amuse = AmuseMenuView.amuseMenuView()
+        amuse.frame = CGRect(x: 0, y: -kMenuViewH, width: kScreenWidth, height: kMenuViewH)
+        return amuse
+    }()
+    
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+// MARK: 设置界面
+extension FunyViewController{
+    override func onfinishInfalse() {
+        super.onfinishInfalse()
+        //添加头视图
+        collectionView.addSubview(amuseMenuView)
+        collectionView.contentInset = UIEdgeInsetsMake(kMenuViewH, 0, 0, 0)
     }
-    */
-
+}
+// MARK: 请求数据
+extension FunyViewController{
+    override func loadRequestData() {
+        //给父类中的VIewModel赋值
+        baseVM = amuseVM
+        //请求数据
+        amuseVM.loadAmuseData {
+            //刷新
+            self.collectionView.reloadData()
+            //调整数据
+            var tempGroups = self.amuseVM.anchorGroups
+            tempGroups.removeFirst()
+            self.amuseMenuView.groups = tempGroups
+            //完成回调
+//            self.loadRequestData()
+        }
+    }
 }

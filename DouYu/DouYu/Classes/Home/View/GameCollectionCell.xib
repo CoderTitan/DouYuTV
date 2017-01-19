@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -17,16 +15,14 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B4j-4G-7nP">
-                        <constraints>
-                            <constraint firstAttribute="height" constant="15" id="J9a-gG-FpE"/>
-                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Cay-zv-K7A">
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="Cay-zv-K7A" secondAttribute="height" multiplier="1:1" id="pni-Qj-96s"/>
+                            <constraint firstAttribute="height" constant="50" id="QnF-qJ-sA1"/>
+                            <constraint firstAttribute="width" constant="50" id="SiQ-hE-IFO"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -35,17 +31,26 @@
                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                         </userDefinedRuntimeAttributes>
                     </imageView>
+                    <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YZK-kG-R7y">
+                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="xYV-Li-Ldd"/>
+                        </constraints>
+                    </view>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="Cay-zv-K7A" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="3eR-Hz-CXD"/>
-                <constraint firstItem="B4j-4G-7nP" firstAttribute="top" secondItem="Cay-zv-K7A" secondAttribute="bottom" constant="5" id="GDJ-ud-faP"/>
-                <constraint firstAttribute="bottom" secondItem="B4j-4G-7nP" secondAttribute="bottom" constant="10" id="Vpl-gw-zeF"/>
-                <constraint firstItem="B4j-4G-7nP" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="WY3-UO-Khx"/>
-                <constraint firstItem="Cay-zv-K7A" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="oxO-9u-cGB"/>
+                <constraint firstItem="YZK-kG-R7y" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="0R8-yB-4LP"/>
+                <constraint firstItem="B4j-4G-7nP" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="EEu-XV-mIm"/>
+                <constraint firstItem="Cay-zv-K7A" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="SB4-1L-BdD"/>
+                <constraint firstAttribute="trailing" secondItem="YZK-kG-R7y" secondAttribute="trailing" id="e2q-xI-sbw"/>
+                <constraint firstAttribute="bottom" secondItem="YZK-kG-R7y" secondAttribute="bottom" id="ltq-j1-YCM"/>
+                <constraint firstItem="B4j-4G-7nP" firstAttribute="top" secondItem="Cay-zv-K7A" secondAttribute="bottom" constant="5" id="xNr-at-qt5"/>
+                <constraint firstItem="Cay-zv-K7A" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" constant="-8" id="xkS-55-VRQ"/>
             </constraints>
             <size key="customSize" width="127" height="120"/>
             <connections>
+                <outlet property="bottomLine" destination="YZK-kG-R7y" id="D5z-WN-UEY"/>
                 <outlet property="iconImageView" destination="Cay-zv-K7A" id="cV9-km-LBg"/>
                 <outlet property="titleLabel" destination="B4j-4G-7nP" id="hwF-2k-Tjj"/>
             </connections>

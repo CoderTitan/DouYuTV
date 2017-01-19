@@ -22,3 +22,10 @@ class HeaderCollectionView: UICollectionReusableView {
         }
     }
 }
+
+// MARK: xib创建
+extension HeaderCollectionView{
+    class func headerCollectionView() -> HeaderCollectionView{
+        return Bundle.main.loadNibNamed("HeaderCollectionView", owner: nil, options: nil)?.first as! HeaderCollectionView
+    }
+}

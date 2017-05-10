@@ -46,7 +46,7 @@ extension FunyViewController{
             tempGroups.removeFirst()
             self.amuseMenuView.groups = tempGroups
             //完成回调
-//            self.loadRequestData()
+            self.loadDataFinished()
         }
     }
 }

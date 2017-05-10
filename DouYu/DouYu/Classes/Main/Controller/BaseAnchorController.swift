@@ -19,7 +19,7 @@ let kNormalItemW = (kScreenWidth - 3 * kItemMargin) / 2
 let kNormalItemH = kNormalItemW * 3 / 4
 let kPrettyItemH = kNormalItemW * 4 / 3
 
-class BaseAnchorController: UIViewController {
+class BaseAnchorController: BaseViewController {
 
     // MARK: 懒加载
     // MARK: 定义属性
@@ -61,10 +61,15 @@ class BaseAnchorController: UIViewController {
 
 // MARK: 初始化界面
 extension BaseAnchorController{
-    func onfinishInfalse(){
-        // 1.将UICollectionView添加到控制器的View中
+    override func onfinishInfalse(){
+        // 1.给父类中内容View的引用进行赋值
+        contentView = collectionView
+        
+        // 2.添加collectionView
         view.addSubview(collectionView)
-            
+        
+        // 3.调用onfinishInfalse()
+        super.onfinishInfalse()
     }
 }
 
@@ -76,7 +81,7 @@ extension BaseAnchorController{
 }
 
 // MARK: 代理
-extension BaseAnchorController: UICollectionViewDataSource, UICollectionViewDelegate{
+extension BaseAnchorController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return baseVM.anchorGroups.count
     }
@@ -92,5 +97,23 @@ extension BaseAnchorController: UICollectionViewDataSource, UICollectionViewDele
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: kHeaderViewID, for: indexPath) as! HeaderCollectionView
         header.group = baseVM.anchorGroups[indexPath.section]
         return header
+    }
+}
+
+// MARK: 
+extension BaseAnchorController : UICollectionViewDelegate{
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // 1.取出对应的主播信息
+        let anchor = baseVM.anchorGroups[indexPath.section].anchors[indexPath.item]  
+        // 2.判断是秀场房间&普通房间
+        anchor.isVertical == 0 ? pushNormalRoomVc() : presentShowRoomVc()
+    }
+    fileprivate func presentShowRoomVc(){
+        let showRoom = ShowRoomViewController()
+        present(showRoom, animated: true, completion: nil)
+    }
+    fileprivate func pushNormalRoomVc(){
+        let normalRoom = NormalRoomController()
+        navigationController?.pushViewController(normalRoom, animated: true)
     }
 }

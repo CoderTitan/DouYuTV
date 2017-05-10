@@ -62,6 +62,8 @@ extension RecommendViewController{
             moreGroup.tag_name = "更多"
             groups.append(moreGroup)
             self.gameView.group = groups
+            // 3.数据请求完成
+            self.loadDataFinished()
             
         })
         //请求轮播图数据

@@ -53,6 +53,7 @@ extension RecommendViewModel {
         }
         
         // 4.请求第二部分颜值数据
+        //http://capi.douyucdn.cn/api/v1/getVerticalRoom?limit=4&offset=0&time=1486278803
         dGroup.enter()
         NetworkTools.requestData(.get, URLString: "http://capi.douyucdn.cn/api/v1/getVerticalRoom", parameters: parameters as [String : NSString]?) { (result) in
             // 1.将result转成字典类型

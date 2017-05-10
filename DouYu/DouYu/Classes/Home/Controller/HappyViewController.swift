@@ -32,7 +32,7 @@ extension HappyViewController{
         baseVM = happyVM
         happyVM.loadFunnyData { 
             self.collectionView.reloadData()
-            
+            self.loadDataFinished()
         }
     }
 }

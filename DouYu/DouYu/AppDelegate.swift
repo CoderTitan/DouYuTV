@@ -17,6 +17,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
         UITabBar.appearance().tintColor = UIColor.orange
+        
+        //3D Touch
+        let homeIcon = UIApplicationShortcutIcon(type: .add)
+        let homeItem = UIApplicationShortcutItem(type: "homeAnchor", localizedTitle: "首页", localizedSubtitle: "点击进入首页", icon: homeIcon, userInfo: nil)
+        let playIcon = UIApplicationShortcutIcon(type: .play)
+        let playItem = UIApplicationShortcutItem(type: "play", localizedTitle: "播放", localizedSubtitle: "", icon: playIcon, userInfo: nil)
+        let userIcon = UIApplicationShortcutIcon(type: .search)
+        let userItem = UIApplicationShortcutItem(type: "username", localizedTitle: "用户名", localizedSubtitle: "", icon: userIcon, userInfo: nil)
+        
+        UIApplication.shared.shortcutItems = [homeItem, playItem, userItem]
+        
+        
         return true
     }
 

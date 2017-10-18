@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4735FFB31F976A10007750DB /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4735FFB21F976A10007750DB /* ProfileViewController.swift */; };
 		6A09190C1E2FA88200BE7C97 /* BaseGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A09190B1E2FA88200BE7C97 /* BaseGameModel.swift */; };
 		6A09190E1E2FA90D00BE7C97 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A09190D1E2FA90D00BE7C97 /* GameModel.swift */; };
 		6A0919101E2FA96700BE7C97 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A09190F1E2FA96700BE7C97 /* GameViewModel.swift */; };
@@ -68,6 +69,7 @@
 
 /* Begin PBXFileReference section */
 		05F315077BFDF8223BA09B39 /* Pods-DouYu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DouYu.release.xcconfig"; path = "Pods/Target Support Files/Pods-DouYu/Pods-DouYu.release.xcconfig"; sourceTree = "<group>"; };
+		4735FFB21F976A10007750DB /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		6A09190B1E2FA88200BE7C97 /* BaseGameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseGameModel.swift; sourceTree = "<group>"; };
 		6A09190D1E2FA90D00BE7C97 /* GameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
 		6A09190F1E2FA96700BE7C97 /* GameViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
@@ -458,6 +460,7 @@
 			isa = PBXGroup;
 			children = (
 				6AF339C11E267ED900FAC5AD /* Profile.storyboard */,
+				4735FFB21F976A10007750DB /* ProfileViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -556,6 +559,7 @@
 				TargetAttributes = {
 					6AF339831E2539EE00FAC5AD = {
 						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = 3HG8J7L5X5;
 						LastSwiftMigration = 0800;
 					};
 				};
@@ -612,9 +616,14 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-DouYu/Pods-DouYu-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -627,13 +636,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DouYu-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		3D524BE0C32575299E8C1F40 /* [CP] Copy Pods Resources */ = {
@@ -680,6 +692,7 @@
 				6AA735C71EC37A2200372F5E /* CustomNavigationController.swift in Sources */,
 				6AA735D01EC37AF900372F5E /* ShowRoomViewController.swift in Sources */,
 				6A0919201E312E3500BE7C97 /* HappyViewModel.swift in Sources */,
+				4735FFB31F976A10007750DB /* ProfileViewController.swift in Sources */,
 				6A09190C1E2FA88200BE7C97 /* BaseGameModel.swift in Sources */,
 				6A58BED61E2B3F4B00FC9305 /* CollectionNormalCell.swift in Sources */,
 				6AC4AAFE1E2BE99D007DC125 /* BaseCollectionCell.swift in Sources */,
@@ -819,6 +832,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				DEVELOPMENT_TEAM = 3HG8J7L5X5;
 				INFOPLIST_FILE = DouYu/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -834,6 +848,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				DEVELOPMENT_TEAM = 3HG8J7L5X5;
 				INFOPLIST_FILE = DouYu/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

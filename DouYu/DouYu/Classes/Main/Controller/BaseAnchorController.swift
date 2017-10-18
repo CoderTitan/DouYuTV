@@ -110,6 +110,7 @@ extension BaseAnchorController : UICollectionViewDelegate{
     }
     fileprivate func presentShowRoomVc(){
         let showRoom = ShowRoomViewController()
+        showRoom.hidesBottomBarWhenPushed = true
         present(showRoom, animated: true, completion: nil)
     }
     fileprivate func pushNormalRoomVc(){

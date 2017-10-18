@@ -44,5 +44,20 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+    <key>UIApplicationShortcutItems</key>
+    <array>
+        <dict>
+            <key>UIApplicationShrtcutItemTitle</key>
+            <string>按钮1</string>
+            <key>UIApplicationShortcutItemType</key>
+            <string>button1</string>
+            <key>UIApplicationShortcutItemSubtitle</key>
+            <string>点击跳转到按钮1页面</string>
+            <key>UIApplicationShortcutItemIconType</key>
+            <string>UIApplicationShortcutIconTypeTime</string>
+            <key>UIApplicationShortcutItemUserInfo</key>
+            <string>我是按钮1的附加信息</string>
+        </dict>
+    </array>
 </dict>
 </plist>

@@ -10,26 +10,35 @@ import UIKit
 
 class ProfileViewController: UIViewController {
 
+    @IBOutlet weak var tableView: UITableView!
+    fileprivate let titles = ["用户名", "头像"]
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        title = "我的"
+        view.backgroundColor = UIColor.white
+        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+}
+
+extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return titles.count
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCell(withIdentifier: "cell")
+        if cell == nil {
+            cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
+            cell?.textLabel?.text = titles[indexPath.row]
+            cell?.accessoryType = .disclosureIndicator
+        }
+        return cell!
     }
-    */
-
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let username = NameViewController()
+        username.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(username, animated: true)
+    }
 }

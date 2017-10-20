@@ -1,6 +1,14 @@
 {
   "images" : [
     {
+      "orientation" : "portrait",
+      "idiom" : "iphone",
+      "extent" : "full-screen",
+      "minimum-system-version" : "11.0",
+      "subtype" : "2436h",
+      "scale" : "3x"
+    },
+    {
       "extent" : "full-screen",
       "idiom" : "iphone",
       "subtype" : "736h",
@@ -19,11 +27,12 @@
       "scale" : "2x"
     },
     {
-      "orientation" : "portrait",
+      "extent" : "full-screen",
       "idiom" : "iphone",
       "filename" : "LaunchImage-700@2x.png",
-      "extent" : "full-screen",
       "minimum-system-version" : "7.0",
+      "orientation" : "portrait",
+      "unassigned" : true,
       "scale" : "2x"
     },
     {
@@ -33,6 +42,7 @@
       "filename" : "LaunchImage-568h@2x.png",
       "minimum-system-version" : "7.0",
       "orientation" : "portrait",
+      "unassigned" : true,
       "scale" : "2x"
     }
   ],

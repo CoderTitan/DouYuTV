@@ -18,8 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         UITabBar.appearance().tintColor = UIColor.orange
         
+        
+        
         //3D Touch
-        let homeIcon = UIApplicationShortcutIcon(type: .add)
+        let homeIcon = UIApplicationShortcutIcon(type: .compose)
         let homeItem = UIApplicationShortcutItem(type: "homeAnchor", localizedTitle: "首页", localizedSubtitle: "点击进入首页", icon: homeIcon, userInfo: nil)
         let playIcon = UIApplicationShortcutIcon(type: .play)
         let playItem = UIApplicationShortcutItem(type: "play", localizedTitle: "播放", localizedSubtitle: "", icon: playIcon, userInfo: nil)
@@ -30,6 +32,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         return true
+    }
+    
+    //菜单跳转
+    func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
+        guard let tabBarVC = window?.rootViewController as? MainViewController else { return }
+        
+        //根据type唯一标识进行判断跳转, 或者根据localizedTitle判断
+        switch shortcutItem.type {
+        case "homeAnchor":
+            tabBarVC.selectedIndex = 1
+        case "play":
+            let username = ShowRoomViewController()
+            username.hidesBottomBarWhenPushed = true
+            tabBarVC.selectedViewController?.childViewControllers.first?.present(username, animated: true, completion: nil)
+        case "username":
+            let username = NameViewController()
+            username.hidesBottomBarWhenPushed = true
+            tabBarVC.selectedViewController?.childViewControllers.last?.navigationController?.pushViewController(username, animated: true)
+        default:
+            tabBarVC.selectedIndex = 0
+        }
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

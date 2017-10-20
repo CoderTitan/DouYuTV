@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		4735FFB31F976A10007750DB /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4735FFB21F976A10007750DB /* ProfileViewController.swift */; };
+		4735FFB61F976D03007750DB /* NameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4735FFB41F976D03007750DB /* NameViewController.swift */; };
+		4735FFB71F976D03007750DB /* NameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4735FFB51F976D03007750DB /* NameViewController.xib */; };
+		4735FFB91F976DD1007750DB /* LiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4735FFB81F976DD1007750DB /* LiveViewController.swift */; };
 		6A09190C1E2FA88200BE7C97 /* BaseGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A09190B1E2FA88200BE7C97 /* BaseGameModel.swift */; };
 		6A09190E1E2FA90D00BE7C97 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A09190D1E2FA90D00BE7C97 /* GameModel.swift */; };
 		6A0919101E2FA96700BE7C97 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A09190F1E2FA96700BE7C97 /* GameViewModel.swift */; };
@@ -70,6 +73,9 @@
 /* Begin PBXFileReference section */
 		05F315077BFDF8223BA09B39 /* Pods-DouYu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DouYu.release.xcconfig"; path = "Pods/Target Support Files/Pods-DouYu/Pods-DouYu.release.xcconfig"; sourceTree = "<group>"; };
 		4735FFB21F976A10007750DB /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		4735FFB41F976D03007750DB /* NameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameViewController.swift; sourceTree = "<group>"; };
+		4735FFB51F976D03007750DB /* NameViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NameViewController.xib; sourceTree = "<group>"; };
+		4735FFB81F976DD1007750DB /* LiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveViewController.swift; sourceTree = "<group>"; };
 		6A09190B1E2FA88200BE7C97 /* BaseGameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseGameModel.swift; sourceTree = "<group>"; };
 		6A09190D1E2FA90D00BE7C97 /* GameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
 		6A09190F1E2FA96700BE7C97 /* GameViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
@@ -365,6 +371,7 @@
 			isa = PBXGroup;
 			children = (
 				6AF339BD1E267E6700FAC5AD /* Live.storyboard */,
+				4735FFB81F976DD1007750DB /* LiveViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -461,6 +468,8 @@
 			children = (
 				6AF339C11E267ED900FAC5AD /* Profile.storyboard */,
 				4735FFB21F976A10007750DB /* ProfileViewController.swift */,
+				4735FFB41F976D03007750DB /* NameViewController.swift */,
+				4735FFB51F976D03007750DB /* NameViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -604,6 +613,7 @@
 				6A58BEDB1E2B4C0900FC9305 /* CollectionPrettyCell.xib in Resources */,
 				6AF339C21E267ED900FAC5AD /* Profile.storyboard in Resources */,
 				6AF339C01E267EA300FAC5AD /* Follow.storyboard in Resources */,
+				4735FFB71F976D03007750DB /* NameViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -678,6 +688,7 @@
 				6A0919101E2FA96700BE7C97 /* GameViewModel.swift in Sources */,
 				6AA735C61EC37A2200372F5E /* BaseViewController.swift in Sources */,
 				6A58BEC41E27C76B00FC9305 /* UIColor-Extension.swift in Sources */,
+				4735FFB61F976D03007750DB /* NameViewController.swift in Sources */,
 				6A58BEDA1E2B4C0900FC9305 /* CollectionPrettyCell.swift in Sources */,
 				6A09190E1E2FA90D00BE7C97 /* GameModel.swift in Sources */,
 				6A58BEC61E2A560D00FC9305 /* RecommendViewController.swift in Sources */,
@@ -685,6 +696,7 @@
 				6A58BED21E2B3C4100FC9305 /* HeaderCollectionView.swift in Sources */,
 				6A58BECC1E2A565100FC9305 /* HappyViewController.swift in Sources */,
 				6A0919121E2FCC1D00BE7C97 /* BaseViewModel.swift in Sources */,
+				4735FFB91F976DD1007750DB /* LiveViewController.swift in Sources */,
 				6AC4AAF41E2B67F9007DC125 /* NetworkTools.swift in Sources */,
 				6AC4AAF81E2B7372007DC125 /* NSDate-Extension.swift in Sources */,
 				6AF339881E2539EE00FAC5AD /* AppDelegate.swift in Sources */,

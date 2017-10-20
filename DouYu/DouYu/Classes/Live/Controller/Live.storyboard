@@ -1,24 +1,47 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BFZ-Qg-ILk">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BFZ-Qg-ILk">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Live View Controller-->
         <scene sceneID="upb-qJ-dZN">
             <objects>
-                <viewController id="jeC-Sj-l50" sceneMemberID="viewController">
+                <viewController id="jeC-Sj-l50" customClass="LiveViewController" customModule="DouYu" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Rhy-lo-xqK"/>
                         <viewControllerLayoutGuide type="bottom" id="Ald-VX-DSm"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="IKX-jh-7iR">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JOh-FK-HFL">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="jeC-Sj-l50" id="IGy-x7-tac"/>
+                                    <outlet property="delegate" destination="jeC-Sj-l50" id="8o0-6W-jSH"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="JOh-FK-HFL" secondAttribute="trailing" id="C8d-wG-I7V"/>
+                            <constraint firstItem="JOh-FK-HFL" firstAttribute="leading" secondItem="IKX-jh-7iR" secondAttribute="leading" id="SrJ-hZ-PXd"/>
+                            <constraint firstItem="JOh-FK-HFL" firstAttribute="top" secondItem="Rhy-lo-xqK" secondAttribute="bottom" id="nxk-ta-MFd"/>
+                            <constraint firstItem="Ald-VX-DSm" firstAttribute="top" secondItem="JOh-FK-HFL" secondAttribute="bottom" id="pS9-ys-6Jq"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="L3O-vt-mqQ"/>
+                    <connections>
+                        <outlet property="tableVIew" destination="JOh-FK-HFL" id="p7u-qP-Aa5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cUN-uN-fop" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -32,9 +55,8 @@
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="VT1-DV-hJC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
